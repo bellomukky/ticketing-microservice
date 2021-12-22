@@ -1,0 +1,21 @@
+apiVersion: skaffold/v2beta13
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  # local:
+  #   push: false
+  googleCloudBuild:
+    projectId: formidable-rune-335222
+  artifacts:
+    - image: us.gcr.io/formidable-rune-335222/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+
