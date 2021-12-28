@@ -18,4 +18,12 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
+    - image: us.gcr.io/formidable-rune-335222/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.ts"
+            dest: .
 
