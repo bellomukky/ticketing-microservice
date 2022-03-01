@@ -26,4 +26,20 @@ build:
         manual:
           - src: "**/*.ts"
             dest: .
+    - image: us.gcr.io/formidable-rune-335222/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: us.gcr.io/formidable-rune-335222/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
 

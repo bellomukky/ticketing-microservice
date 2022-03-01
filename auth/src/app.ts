@@ -6,8 +6,8 @@ import {signInRouter} from "./routes/signin";
 import {signUpRouter} from "./routes/signup";
 import {signOutRouter} from "./routes/signout";
 
-import {errorHandler} from "./middlewares/error-handler";
-import {NotFoundError} from "./errors/not-found-error";
+import {errorHandler,NotFoundError} from "@mbticket/common";
+
 import cookieSession from "cookie-session";
 
 const app = express();

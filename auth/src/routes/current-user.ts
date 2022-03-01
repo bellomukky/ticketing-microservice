@@ -1,6 +1,6 @@
 
 import {Router,Response,Request} from 'express';
-import {currentUser} from "../middlewares/current-user";
+import {currentUser} from "@mbticket/common";
 
 const router = Router();
 

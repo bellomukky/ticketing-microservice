@@ -1,18 +1,18 @@
 
-import axios from "axios";
-const HomePage = ({currentUser})=>{
-
+import axios from "../lib/axios";
+const HomePage =  ({currentUser})=>{
     return (
-        <h1>Home Page2</h1>
+         currentUser?
+        <h1>You are signed in</h1>
+        :<h1>You are not signed in</h1>
     )
 }
 
-export function getServerSideProps(){
+HomePage.getInitialProps = async (context)=>{
 
-    const response  = await axios.get("/api/users/currents")
-    console.log("I am on the server side")
-    return {props:{currentUser:response.data.currentUser}}
+    const response  = await axios(context).get("/api/users/currentuser")
+    return {currentUser:response.data.currentUser}
 }
 
-
 export default HomePage;
+
